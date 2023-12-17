@@ -1,48 +1,35 @@
 import random
 
-choices = ["Rock", "Paper", "Scissor"]
+def get_user_choice():
+    user_choice = input("Enter Rock, Paper, or Scissors: ").lower()
+    while user_choice not in ['rock', 'paper', 'scissors']:
+        user_choice = input("Invalid input. Please enter Rock, Paper, or Scissors: ").lower()
+    return user_choice
 
-player = False
-cpu_score = 0
-player_score = 0
+def get_computer_choice():
+    return random.choice(['rock', 'paper', 'scissors'])
 
-while True:
-    player = input("Enter your choice ").capitalize()
+def determine_winner(user, computer):
+    if user == computer:
+        return "It's a tie!"
+    elif (user == 'rock' and computer == 'scissors') or \
+         (user == 'paper' and computer == 'rock') or \
+         (user == 'scissors' and computer == 'paper'):
+        return "You win!"
+    else:
+        return "Computer wins!"
 
-    computer = random.choice(choices)
+def play_game():
+    print("Let's play Rock, Paper, Scissors!")
+    while True:
+        user_choice = get_user_choice()
+        computer_choice = get_computer_choice()
+        print(f"You chose: {user_choice}")
+        print(f"Computer chose: {computer_choice}")
+        print(determine_winner(user_choice, computer_choice))
+        play_again = input("Do you want to play again? (yes/no): ").lower().strip()
+        if play_again != 'yes':
+            print("Thanks for playing!")
+            break
 
-    if computer == player:
-        print("Its tie now...")
-
-    elif player == "Rock":
-        if computer == "Paper":
-            print("You lose...", computer, "covers", player)
-            cpu_score += 1
-
-        else:
-            print("You won...", player, "smashes", computer)
-            player_score += 1
-
-    elif player == "Paper":
-        if computer == "Rock":
-            print("You won...", player, "covers", computer)
-            player_score += 1
-        
-        else:
-            print("You lose...", computer, "cut", player)
-            cpu_score += 1
-
-    elif player == "Scissor":
-        if computer == "Paper":
-            print("You won...", player, "cut", computer)
-            player_score += 1
-
-        else:
-            print("You lose...", computer, "smashes", player)
-            cpu_score += 1
-
-    elif player == "End":
-        print("The final scores are ")
-        print(f"CPU Score {cpu_score}")
-        print(f"Player Score {player_score}")
-        break
+play_game()
