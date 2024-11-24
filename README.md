@@ -82,7 +82,7 @@ This repository contains a collection of mini Python projects designed to demons
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/miniprojects.git
+   git clone https://github.com/Ashleylindi/Mini_Pojects.git
    cd miniprojects
    ```
 
