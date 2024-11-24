@@ -1,0 +1,4 @@
+pygame
+forex-python
+requests
+beautifulsoup4
