@@ -94,7 +94,7 @@ This repository contains a collection of mini Python projects designed to demons
 
 3. Run a specific project:
 
-```bash
-python3 project_name.py
-# Replace project_name.py with the name of the script you want to run.
-```
+    ```bash
+    python3 project_name.py
+    # Replace project_name.py with the name of the script you want to run.
+    ```
